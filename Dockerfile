@@ -24,6 +24,7 @@ RUN apt-get update -qq \
 
 RUN curl http://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add -
 RUN echo deb http://packages.elasticsearch.org/elasticsearch/2.x/debian stable main > /etc/apt/sources.list.d/elasticsearch-2.x.list
+RUN echo deb https://packages.elastic.co/beats/apt stable main > /etc/apt/sources.list.d/beats.list
 
 RUN apt-get update -qq \
  && apt-get install -qqy \
@@ -68,6 +69,12 @@ RUN mkdir ${KIBANA_HOME} \
 ADD ./kibana-init /etc/init.d/kibana
 RUN sed -i -e 's#^KIBANA_HOME=$#KIBANA_HOME='$KIBANA_HOME'#' /etc/init.d/kibana \
  && chmod +x /etc/init.d/kibana
+
+
+### install Beats
+
+RUN apt-get install filebeat
+RUN update-rc.d filebeat defaults 95 10
 
 
 ###############################################################################
