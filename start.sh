@@ -34,7 +34,7 @@ rm -f /var/run/elasticsearch/elasticsearch.pid /var/run/logstash.pid \
   /var/run/kibana4.pid
 
 ## fix container timezone if TZ is present
-./timezone.sh
+/usr/local/bin/timezone_fix
 
 ## start services
 
