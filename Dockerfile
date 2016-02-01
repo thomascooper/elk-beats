@@ -101,6 +101,8 @@ ADD ./02-beats-input.conf /etc/logstash/conf.d/02-beats-input.conf
 ADD ./10-syslog.conf /etc/logstash/conf.d/10-syslog.conf
 ADD ./30-output.conf /etc/logstash/conf.d/30-output.conf
 
+# filebeat
+ADD ./filebeat.yml /etc/filebeat/filebeat.yml
 
 
 ###############################################################################

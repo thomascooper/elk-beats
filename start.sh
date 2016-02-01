@@ -18,6 +18,7 @@ _term() {
   service elasticsearch stop
   service logstash stop
   service kibana stop
+  service filebeat stop
   exit 0
 }
 
@@ -47,6 +48,7 @@ while [ ! "$(curl localhost:9200 2> /dev/null)" -a $counter -lt 30  ]; do
   echo "waiting for Elasticsearch to be up ($counter/30)"
 done
 
+service filebeat start
 service kibana start
 
 tail -f /var/log/elasticsearch/elasticsearch.log &
