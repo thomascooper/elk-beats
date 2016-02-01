@@ -15,3 +15,9 @@ filebeat:
         - /var/log/dockerhost/syslog
       document_type: syslog
       scan_frequency: 1s
+    -
+      paths:
+        - /var/log/dockerhost/libvirt/*.log
+        - /var/log/dockerhost/libvirt/*/*.log
+      document_type: log
+      scan_frequency: 1s
