@@ -33,6 +33,8 @@ trap _term SIGTERM
 rm -f /var/run/elasticsearch/elasticsearch.pid /var/run/logstash.pid \
   /var/run/kibana4.pid
 
+## fix container timezone if TZ is present
+./timezone.sh
 
 ## start services
 

@@ -104,6 +104,9 @@ ADD ./30-output.conf /etc/logstash/conf.d/30-output.conf
 # filebeat
 ADD ./filebeat.yml /etc/filebeat/filebeat.yml
 
+# timezone fix
+ADD ./timezone.sh /usr/local/bin/timezone.sh
+RUN chmod +x /usr/local/bin/timezone.sh
 
 ###############################################################################
 #                                   START
